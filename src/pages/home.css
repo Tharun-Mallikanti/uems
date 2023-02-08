@@ -1,0 +1,70 @@
+.home,
+.nav {
+  overflow-x: hidden;
+  /* background-color: #863a6f; */
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #004e92,
+    #000428
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #004e92,
+    #000428
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1,
+h3,
+h4 {
+  font-family: "Antic Didone";
+}
+p {
+  font-family: "Open sans";
+}
+/* navbar */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+.coll2 {
+  text-align: center;
+  line-height: 1.5;
+}
+.row {
+  margin: 0;
+}
+/* intro */
+.intro-text {
+  color: white;
+}
+.intro-text p {
+  line-height: 2;
+}
+/* upcoming Events */
+.upevt {
+  background-color: white;
+}
+.coll {
+  /* background-color: antiquewhite; */
+  text-align: center;
+  line-height: 2;
+}
+.coll p {
+  font-family: Verdana, sans-serif;
+}
+.oevt {
+  /* background-color: antiquewhite; */
+  text-align: center;
+}
+.oevt h3 {
+  font-weight: 600;
+}
+/* contact us */
+footer {
+  color: white;
+}
+.cus {
+  text-align: center;
+  padding-top: 3rem;
+}

@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+nav,
+.title-div {
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #004e92,
+    #01094c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #004e92,
+    #01094c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+.icon {
+  font-size: 36px;
+}

@@ -1,0 +1,16 @@
+.login-head,
+.btn-div {
+  text-align: center;
+}
+.login {
+  border-radius: 10px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 5px 5px 5px #d3d3d3;
+}
+.icon {
+  font-size: 24px;
+  float: left;
+}
+body {
+  background-color: unset !important;
+}
