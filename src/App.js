@@ -6,9 +6,8 @@ import Declined from "./pages/admin/Declined";
 import Knowstatus from "./pages/admin/Knowstatus";
 import Request from "./pages/admin/Request";
 import Home from "./pages/Home";
-import Footer from "./pages/home/Footer";
-import Navbar from "./pages/home/Navbar";
-import Login from "./pages/Login";
+import Body from "./pages/home/Body";
+import AboutUs from "./pages/home/Aboutus";
 import Organiser from "./pages/Organiser";
 import Report from "./pages/organiser/Report";
 import Schedule from "./pages/organiser/Schedule";
@@ -17,8 +16,10 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/" element={<Home />}>
+          <Route path="" element={<Body />} />
+          <Route path="aboutus" element={<AboutUs />} />
+        </Route>
         <Route exact path="/admin" element={<Admin />}>
           <Route path="" element={<Request />} />
           <Route path="approved" element={<Approved />} />

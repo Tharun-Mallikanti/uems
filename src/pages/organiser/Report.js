@@ -1,6 +1,17 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import ReportComp from "./ReportComp";
 const Report = () => {
+  const [jsonData, setJsonData] = useState([]);
+  async function getData() {
+    let res = await fetch("http://localhost:5000/api/admin/approved");
+    let data = await res.json();
+    console.table(data);
+    setJsonData(data);
+  }
+  useEffect(() => {
+    getData();
+    console.log("Page load empty dependancy array");
+  }, []);
   return (
     <div className="container my-4">
       <h2 className="mt-3">Filter Reports</h2>`
@@ -85,50 +96,14 @@ const Report = () => {
             <tr>
               <th scope="col">S.No.</th>
               <th scope="col">Event name</th>
-              <th scope="col">Event Type</th>
               <th scope="col">Event Description</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Event 1</td>
-              <td>Meeting</td>
-              <td className="desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-                repudiandae odit, pariatur velit ipsam sed voluptas quisquam
-                quae maxime fuga nemo enim ad autem tempore non! Velit deleniti
-                animi exercitationem.
-              </td>
-              <td>
-                <button className="btn btn-primary m-1">
-                  <i className="fa fa-info-circle"></i> Details
-                </button>
-                <button className="btn btn-success m-1">
-                  <i className="fa fa-download"></i> Download
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Event 2</td>
-              <td>Workshop</td>
-              <td className="desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-                repudiandae odit, pariatur velit ipsam sed voluptas quisquam
-                quae maxime fuga nemo enim ad autem tempore non! Velit deleniti
-                animi exercitationem.
-              </td>
-              <td>
-                <button className="btn btn-primary m-1">
-                  <i className="fa fa-info-circle"></i> Details
-                </button>
-                <button className="btn btn-success m-1">
-                  <i className="fa fa-download"></i> Download
-                </button>
-              </td>
-            </tr>
+            {jsonData.map((ele, i) => {
+              return <ReportComp key={ele._id} num={i + 1} text={ele} />;
+            })}
           </tbody>
         </table>
       </div>

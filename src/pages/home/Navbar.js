@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Login from "../Login";
 const Navbar = () => {
   return (
@@ -30,14 +30,14 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item mx-md-5">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item mx-md-5">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/aboutus">
                 About us
-              </a>
+              </Link>
             </li>
             <li className="nav-item mx-md-5">
               <a className="nav-link" href="#footer">

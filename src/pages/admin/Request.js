@@ -59,7 +59,7 @@ function Request() {
           <input
             type="number"
             id="typeNumber"
-            max="200"
+            max="1000"
             name="nParticipants"
             onChange={handleOnChange}
             value={formData.nParticipants}
@@ -91,6 +91,7 @@ function Request() {
             placeholder="Select date"
             type="date"
             name="date"
+            min={new Date().toISOString().slice(0, -14)}
             onChange={handleOnChange}
             value={formData.date}
             className="form-control"

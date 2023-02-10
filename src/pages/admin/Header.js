@@ -33,9 +33,9 @@ const Header = (props) => {
             {props.usertype}
           </span>
           <form className="d-flex">
-            <button className="btn btn-danger" type="submit">
+            <Link className="btn btn-danger" type="submit" to="/">
               Logout
-            </button>
+            </Link>
           </form>
         </div>
       </div>

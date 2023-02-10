@@ -3,12 +3,29 @@ import React from "react";
 const Card = (props) => {
   return (
     <div className="col-lg-4 coll mx-md-auto">
-      <div className="px-md-5 py-md-5">
-        <h4>Event {props.num}</h4>
+      <div className="px-md-5 py-md-3">
+        <h4>
+          <strong>{props.text.name}</strong>
+        </h4>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-          similique quis alias sint illum illo nam aspernatur voluptatum nulla
-          impedit.
+          Description:
+          {props.text.desc}
+        </p>
+        <p>
+          Date:
+          {props.text.date}
+        </p>
+        <p>
+          start:
+          {props.text.timeIn}
+        </p>
+        <p>
+          end:
+          {props.text.timeOut}
+        </p>
+        <p>
+          Venue:
+          {props.text.venue}
         </p>
       </div>
     </div>

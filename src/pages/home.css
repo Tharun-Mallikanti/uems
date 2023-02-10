@@ -21,6 +21,8 @@ h4 {
 }
 p {
   font-family: "Open sans";
+  margin: 0;
+  padding: 0;
 }
 /* navbar */
 .container-fluid {
@@ -48,7 +50,6 @@ p {
 .coll {
   /* background-color: antiquewhite; */
   text-align: center;
-  line-height: 2;
 }
 .coll p {
   font-family: Verdana, sans-serif;

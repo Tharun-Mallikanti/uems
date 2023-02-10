@@ -8,11 +8,14 @@ const Carousel = () => {
       <div className="col-md-7 p-sm-5 my-sm-5 intro-text">
         <h1 className="display-md-1 display-4">University Events</h1>
         <p className="display-md-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
-          veritatis officia nam temporibus id fugiat optio labore quia quibusdam
-          iste! Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Nesciunt, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Sapiente, fugit!
+          Welcome to our university event management site, your one-stop
+          solution for all your event planning needs. Our platform is designed
+          specifically for universities, providing a comprehensive and
+          easy-to-use solution for all types of events, ranging from small
+          departmental gatherings to large-scale university-wide events. Our
+          mission is to provide you with a seamless and efficient event planning
+          experience, saving you time and resources while ensuring a successful
+          event outcome.
         </p>
       </div>
       <div className="col-md-5 my-sm-4 my-3">
