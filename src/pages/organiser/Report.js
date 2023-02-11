@@ -14,7 +14,7 @@ const Report = () => {
   }, []);
   return (
     <div className="container my-4">
-      <h2 className="mt-3">Filter Reports</h2>`
+      <h2 className="mt-3">Filter Reports</h2>
       <div>
         <input
           type="text"

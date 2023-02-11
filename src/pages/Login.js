@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-const Login = () => {
+const Login = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -29,6 +29,7 @@ const Login = () => {
     console.log(data);
     if (data.success) {
       localStorage.setItem("token", data.token);
+      props.setToken(data.token);
       navigate("/" + data.type);
     } else {
       Swal.fire("INVALID", "username or password", "error");

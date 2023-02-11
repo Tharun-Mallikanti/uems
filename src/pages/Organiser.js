@@ -1,10 +1,11 @@
 import React from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Header from "./admin/Header";
 import Report from "./organiser/Report";
 import Schedule from "./organiser/Schedule";
 import Requests from "./Requests";
-const Organiser = () => {
+const Organiser = ({ token }) => {
+  if (!token) return <Navigate to={"/"} />;
   const Organisernavs = [
     {
       to: "/organiser",

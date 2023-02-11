@@ -2,7 +2,7 @@ const express = require("express");
 const User = require("../models/user.js");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "27090709";
+const JWT_SECRET = "27090907";
 router.post("/login", async (req, res) => {
   try {
     let token;

@@ -6,8 +6,15 @@ import App from "../App";
 import Approved from "./admin/Approved";
 import Declined from "./admin/Declined";
 import Knowstatus from "./admin/Knowstatus";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-const Admin = () => {
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
+const Admin = ({ token }) => {
+  if (!token) return <Navigate to={"/"} />;
   const navs = [
     {
       to: "/admin",

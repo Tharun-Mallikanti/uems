@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.png";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login";
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg sticky-top navbar-dark py-md-4 p-2 nav">
       <div className="container-fluid">
@@ -46,7 +46,7 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="me-md-4">
-            <Login />
+            <Login token={props.token} setToken={props.setToken} />
           </div>
         </div>
       </div>
