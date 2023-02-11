@@ -11,10 +11,6 @@ const Organiser = () => {
       value: "Requests",
     },
     {
-      to: "/organiser/schedule",
-      value: "Schedule",
-    },
-    {
       to: "/organiser/report",
       value: "Report",
     },

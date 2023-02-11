@@ -1,8 +1,11 @@
 const express = require("express");
 const User = require("../models/user.js");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = "27090709";
 router.post("/login", async (req, res) => {
   try {
+    let token;
     const data = req.body;
     console.log(data);
     const u = data.username;
@@ -10,7 +13,8 @@ router.post("/login", async (req, res) => {
     console.log(getUser);
     if (getUser) {
       if (data.password == getUser.password) {
-        res.json({ success: true, type: getUser.type });
+        token = jwt.sign({ _id: getUser._id }, JWT_SECRET);
+        res.json({ success: true, type: getUser.type, token: token });
       }
     } else {
       res.json({ success: false });

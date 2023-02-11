@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReportComp from "./ReportComp";
 const Report = () => {
+  const [search, setSearch] = useState("");
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
     let res = await fetch("http://localhost:5000/api/admin/approved");
     let data = await res.json();
-    console.table(data);
     setJsonData(data);
   }
   useEffect(() => {
@@ -18,76 +18,12 @@ const Report = () => {
       <div>
         <input
           type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           className="form-control"
-          placeholder="Name of the Event"
+          placeholder="Search for Event"
           aria-label="Name of the Event"
         />
-        <div className="row">
-          <div className="my-2 col-lg-7">
-            <div className="input-group">
-              <span className="input-group-text">From date</span>
-              <input
-                type="date"
-                className="form-control"
-                id="date-from"
-                name="date-from"
-              />
-              <span className="input-group-text">To date</span>
-              <input
-                type="date"
-                className="form-control"
-                id="date-to"
-                name="date-to"
-              />
-            </div>
-          </div>
-          <div className="my-2 col-lg-auto align-self-center">(OR)</div>
-          <div className="my-2 col-lg-3">
-            <div className="input-group">
-              <span className="input-group-text">Year</span>
-              <input
-                type="number"
-                className="form-control"
-                id="date-year"
-                name="date-year"
-                min="2020"
-                max="9999"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="my-2 col-lg-4">
-            <div className="input-group">
-              <label htmlFor="desc" className="input-group-text">
-                Event Type
-              </label>
-              <select
-                className="form-select"
-                aria-label="Type of Event"
-                name="type"
-                id="type"
-              >
-                <option selected>-- Select --</option>
-                <option value="1">General</option>
-                <option value="2">Meeting</option>
-                <option value="3">Fest</option>
-                <option value="4">Workshop</option>
-              </select>
-            </div>
-          </div>
-          <div className="my-2 col-lg-4">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search Keywords"
-              aria-label="Search keywords"
-            />
-          </div>
-          <div className="my-2 col-lg-4">
-            <button className="btn btn-primary">Search</button>
-          </div>
-        </div>
       </div>
       <h3 className="my-4">Search Results</h3>
       <div className="table my-4" style={{ overflowX: "auto" }}>
@@ -101,9 +37,13 @@ const Report = () => {
             </tr>
           </thead>
           <tbody>
-            {jsonData.map((ele, i) => {
-              return <ReportComp key={ele._id} num={i + 1} text={ele} />;
-            })}
+            {jsonData
+              .filter((ele) =>
+                ele.name.toLowerCase().includes(search.toLowerCase())
+              )
+              .map((ele, i) => {
+                return <ReportComp key={ele._id} num={i + 1} text={ele} />;
+              })}
           </tbody>
         </table>
       </div>

@@ -33,7 +33,12 @@ const Header = (props) => {
             {props.usertype}
           </span>
           <form className="d-flex">
-            <Link className="btn btn-danger" type="submit" to="/">
+            <Link
+              className="btn btn-danger"
+              type="button"
+              to="/"
+              onClick={() => localStorage.removeItem("token")}
+            >
               Logout
             </Link>
           </form>
