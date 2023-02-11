@@ -20,6 +20,9 @@ function Request() {
     let val = i === 1 ? e.target.checked : !e.target.checked;
     setFormData({ ...formData, refreshments: val });
   };
+  const handleOnClick = () => {
+    setFormData(nData);
+  };
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
@@ -170,7 +173,8 @@ function Request() {
         <div className="mb-3" style={{ textAlign: "end" }}>
           <input
             className="btn btn-danger px-4 mx-sm-5"
-            type="reset"
+            type="button"
+            onClick={handleOnClick}
             value="Reset"
           />
           <input
