@@ -18,7 +18,7 @@ const Login = (props) => {
     });
   };
   const handleOnClick = async () => {
-    let res = await fetch("/api/login", {
+    let res = await fetch("https://uems-backend.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

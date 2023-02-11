@@ -4,7 +4,9 @@ import ApprovedEvents from "./ApprovedEventsinfo";
 const Declined = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("/api/admin/declined");
+    let res = await fetch(
+      "https://uems-backend.onrender.com/api/admin/declined"
+    );
     let data = await res.json();
     console.table(data);
     setJsonData(data);
