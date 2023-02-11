@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const Requests = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("http://localhost:5000/api/admin/pending");
+    let res = await fetch("/api/admin/pending");
     let data = await res.json();
     console.table(data);
     setJsonData(data);
@@ -15,7 +15,7 @@ const Requests = () => {
   }, []);
   const handleOnClick = async (e, i, id) => {
     console.log(i);
-    let res = await fetch("http://localhost:5000/api/organiser/approvals", {
+    let res = await fetch("/api/organiser/approvals", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

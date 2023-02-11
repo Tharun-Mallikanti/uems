@@ -4,7 +4,7 @@ import ApprovedEvents from "./ApprovedEventsinfo";
 const Declined = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("http://localhost:5000/api/admin/declined");
+    let res = await fetch("/api/admin/declined");
     let data = await res.json();
     console.table(data);
     setJsonData(data);

@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const Body = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("http://localhost:5000/api/admin/approved");
+    let res = await fetch("/api/admin/approved");
     let data = await res.json();
     console.table(data);
     setJsonData(data);
