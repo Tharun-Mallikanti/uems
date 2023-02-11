@@ -4,22 +4,6 @@ function RequestComp(props) {
   const name = props.name;
   const supporttxt = props.supporttxt;
   const txt = props.txt;
-  const handleOnClick = async (e, i) => {
-    console.log(i);
-    let res = await fetch("http://localhost:5000/api/organiser/approvals", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ st: i, id: props.num }),
-    });
-    let d = await res.json();
-    if (d.success) {
-      Swal.fire("SUCCESS", "Status Updated !!", "success");
-    } else {
-      Swal.fire("OOPS", "Not updated !!", "error");
-    }
-  };
 
   return (
     <div className="card box-card mt-3">
@@ -38,7 +22,7 @@ function RequestComp(props) {
           <button
             className="btn btn-success float-sm-end mt-3"
             onClick={(e) => {
-              handleOnClick(e, true);
+              props.handleOnClick(true, props.i, props._id);
             }}
           >
             Approve
@@ -46,7 +30,7 @@ function RequestComp(props) {
           <button
             className="btn btn-danger float-sm-end mt-3 me-2"
             onClick={(e) => {
-              handleOnClick(e, false);
+              props.handleOnClick(false, props.i, props._id);
             }}
           >
             Decline

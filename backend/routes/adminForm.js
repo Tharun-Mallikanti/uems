@@ -38,6 +38,15 @@ router.get("/declined", async (req, res) => {
     res.json([]);
   }
 });
+router.get("/pending", async (req, res) => {
+  try {
+    const getData = await Aform.find({ approved: null });
+    console.log(getData);
+    res.json([...getData]);
+  } catch (err) {
+    res.json([]);
+  }
+});
 router.post("/status", async (req, res) => {
   console.log(req.body);
   const getData = await Aform.find({ name: req.body.n });
