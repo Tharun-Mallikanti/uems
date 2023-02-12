@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 const Knowstatus = () => {
   const [n, setName] = useState(null);
   const handleOnChange = (e) => {
     setName(e.target.value);
   };
   const handleOnClick = async (e) => {
-    let res = await fetch("/api/admin/status", {
+    let res = await fetch(BACKEND_URL + "/api/admin/status", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

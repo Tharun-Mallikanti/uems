@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RequestComp from "./organiser/RequestComp";
 import Swal from "sweetalert2";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 const Requests = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("/api/admin/pending");
+    let res = await fetch(BACKEND_URL + "/api/admin/pending");
     let data = await res.json();
     console.table(data);
     setJsonData(data);
@@ -15,7 +16,7 @@ const Requests = () => {
   }, []);
   const handleOnClick = async (e, i, id) => {
     console.log(i);
-    let res = await fetch("/api/organiser/approvals", {
+    let res = await fetch(BACKEND_URL + "/api/organiser/approvals", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReportComp from "./ReportComp";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 const Report = () => {
   const [search, setSearch] = useState("");
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("/api/admin/approved");
+    let res = await fetch(BACKEND_URL + "/api/admin/approved");
     let data = await res.json();
     setJsonData(data);
   }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Accordionitem from "./Accordionitem";
 import ApprovedEvents from "./ApprovedEventsinfo";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 function Approved() {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("/api/admin/approved");
+    let res = await fetch(BACKEND_URL + "/api/admin/approved");
     let data = await res.json();
     console.table(data);
     setJsonData(data);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 function Request() {
   const nData = {
     name: "",
@@ -26,7 +27,7 @@ function Request() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    let res = await fetch("/api/admin/form", {
+    let res = await fetch(BACKEND_URL + "/api/admin/form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

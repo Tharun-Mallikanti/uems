@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import Card from "./Card";
 import Footer from "./Footer";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 const Body = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch("/api/admin/approved");
+    let res = await fetch(BACKEND_URL + "/api/admin/approved");
     let data = await res.json();
     console.table(data);
     setJsonData(data);

@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+const BACKEND_URL = process.env.BACKEND_URL || "";
 const Login = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const Login = (props) => {
     });
   };
   const handleOnClick = async () => {
-    let res = await fetch("/api/login", {
+    let res = await fetch(BACKEND_URL + "/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
