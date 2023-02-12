@@ -6,16 +6,13 @@ const Knowstatus = () => {
     setName(e.target.value);
   };
   const handleOnClick = async (e) => {
-    let res = await fetch(
-      "https://uems-backend.onrender.com/api/admin/status",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ n }),
-      }
-    );
+    let res = await fetch("/api/admin/status", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ n }),
+    });
     let data = await res.json();
     if (data) {
       Swal.fire("APPROVED", "Event got approved", "success");

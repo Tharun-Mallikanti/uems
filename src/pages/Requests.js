@@ -4,9 +4,7 @@ import Swal from "sweetalert2";
 const Requests = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch(
-      "https://uems-backend.onrender.com/api/admin/pending"
-    );
+    let res = await fetch("/api/admin/pending");
     let data = await res.json();
     console.table(data);
     setJsonData(data);
@@ -17,16 +15,13 @@ const Requests = () => {
   }, []);
   const handleOnClick = async (e, i, id) => {
     console.log(i);
-    let res = await fetch(
-      "https://uems-backend.onrender.com/api/organiser/approvals",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ st: i, id: id }),
-      }
-    );
+    let res = await fetch("/api/organiser/approvals", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ st: i, id: id }),
+    });
     let d = await res.json();
     if (d.success) {
       let newJsonData = [...jsonData];

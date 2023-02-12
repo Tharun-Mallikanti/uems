@@ -4,9 +4,7 @@ const Report = () => {
   const [search, setSearch] = useState("");
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
-    let res = await fetch(
-      "https://uems-backend.onrender.com/api/admin/approved"
-    );
+    let res = await fetch("/api/admin/approved");
     let data = await res.json();
     setJsonData(data);
   }

@@ -26,7 +26,7 @@ function Request() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    let res = await fetch("https://uems-backend.onrender.com/api/admin/form", {
+    let res = await fetch("/api/admin/form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
