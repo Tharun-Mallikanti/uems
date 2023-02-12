@@ -2,7 +2,10 @@ import React, { Component, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-const BACKEND_URL = process.env.BACKEND_URL || "";
+const BACKEND_URL =
+  process.env.NODE_ENV == "development"
+    ? ""
+    : "https://uems-backend.onrender.com";
 const Login = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({

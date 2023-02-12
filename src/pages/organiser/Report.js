@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ReportComp from "./ReportComp";
-const BACKEND_URL = process.env.BACKEND_URL || "";
+const BACKEND_URL =
+  process.env.NODE_ENV == "development"
+    ? ""
+    : "https://uems-backend.onrender.com";
 const Report = () => {
   const [search, setSearch] = useState("");
   const [jsonData, setJsonData] = useState([]);

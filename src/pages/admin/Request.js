@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-const BACKEND_URL = process.env.BACKEND_URL || "";
+const BACKEND_URL =
+  process.env.NODE_ENV == "development"
+    ? ""
+    : "https://uems-backend.onrender.com";
 function Request() {
   const nData = {
     name: "",

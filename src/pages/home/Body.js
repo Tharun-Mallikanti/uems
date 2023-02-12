@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import Card from "./Card";
 import Footer from "./Footer";
-const BACKEND_URL = process.env.BACKEND_URL || "";
+const BACKEND_URL =
+  process.env.NODE_ENV == "development"
+    ? ""
+    : "https://uems-backend.onrender.com";
 const Body = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {

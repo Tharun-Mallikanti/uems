@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Accordionitem from "./Accordionitem";
 import ApprovedEvents from "./ApprovedEventsinfo";
-const BACKEND_URL = process.env.BACKEND_URL || "";
+const BACKEND_URL =
+  process.env.NODE_ENV == "development"
+    ? ""
+    : "https://uems-backend.onrender.com";
 const Declined = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {

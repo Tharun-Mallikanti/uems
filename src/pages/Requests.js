@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import RequestComp from "./organiser/RequestComp";
 import Swal from "sweetalert2";
-const BACKEND_URL = process.env.BACKEND_URL || "";
+const BACKEND_URL =
+  process.env.NODE_ENV == "development"
+    ? ""
+    : "https://uems-backend.onrender.com";
 const Requests = () => {
   const [jsonData, setJsonData] = useState([]);
   async function getData() {
